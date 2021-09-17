@@ -11,3 +11,5 @@ EditorBuildSettings:
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 49ffd6693b0f7ee409733e38594f3157, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 7060f5888fe9f394b8891c4a108cf419, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9316946a48590614e90cab5041a29c9e, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 00c8ec9d2fe9fae408ba50bb42f0c6f4, type: 2}

@@ -37,6 +37,10 @@ public class ARGameManager : MonoBehaviour
                         spawnedObject.transform.position = raycastHit[0].pose.position;
                     }
                 }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+
+                }
             }
         }
 

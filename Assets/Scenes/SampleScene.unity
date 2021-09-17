@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 1554550299749653820, guid: 3eaeb9662f21e194a904f550f4a76727, type: 3}
+  m_RaycastPrefab: {fileID: 0}
 --- !u!1 &589936965
 GameObject:
   m_ObjectHideFlags: 0

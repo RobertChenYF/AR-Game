@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class LinkRaycast : MonoBehaviour
 {
-    private Camera gameCamera;
+    [SerializeField]private Camera gameCamera;
     public GameObject HitObject;
+    
     // Start is called before the first frame update
+    void Awake()
+    {
+        Service.linkRaycast = this;
+    }
     void Start()
     {
         
@@ -20,14 +25,26 @@ public class LinkRaycast : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit))
         {
-
-            Transform objectHit = hit.transform;
+            if (hit.transform.gameObject.CompareTag("Target"))
+            {
+                //Debug.Log("Hit");
+                HitObject = hit.transform.gameObject;
+                HitObject.GetComponent<BoxController>().Hit();
+            }
+            
 
             // Do something with the object that was hit by the raycast.
         }
-        else
+        else if(HitObject != null)
         {
+            HitObject.GetComponent<BoxController>().Normal();
             HitObject = null;
         }
     }
+}
+
+public class Service : MonoBehaviour
+{
+    public static LinkRaycast linkRaycast;
+    
 }

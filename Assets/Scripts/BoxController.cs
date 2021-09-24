@@ -39,6 +39,6 @@ public class BoxController : MonoBehaviour
 
     public void Eliminate()
     {
-
+        Destroy(gameObject);
     }
 }

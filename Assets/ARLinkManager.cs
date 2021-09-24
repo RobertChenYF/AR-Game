@@ -7,12 +7,12 @@ public class ARLinkManager : MonoBehaviour
 {
     [SerializeField] private ARRaycastManager raycastManager;
     private List<ARRaycastHit> raycastHit = new List<ARRaycastHit>();
-    public GameObject HitObject;
-    [SerializeField]private Camera ARCamera;
+    public List<GameObject> HitObject = new List<GameObject>();
+    [SerializeField] private Camera ARCamera;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,18 +23,44 @@ public class ARLinkManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             RaycastHit hit;
             Ray ray = ARCamera.ScreenPointToRay(touch.position);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.gameObject.CompareTag("Target"))
 
-                    HitObject = hit.transform.gameObject;
-                    hit.transform.gameObject.GetComponent<BoxController>().Hit();
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform.gameObject.CompareTag("Target"))
+
+                        if (!HitObject.Contains(hit.transform.gameObject))
+                        {
+                            HitObject.Add(hit.transform.gameObject);
+                            hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                        }
                 }
             }
-        else if (HitObject != null)
+            else if (touch.phase == TouchPhase.Canceled)
+            {
+                if (HitObject.Count >= 3)
+                {
+                    Debug.Log("eliminate");
+                    while (HitObject.Count > 0)
+                    {
+                        GameObject a = HitObject[0];
+
+                        HitObject.RemoveAt(0);
+                        a.GetComponent<BoxController>().Eliminate();
+                    }
+
+                }
+            }
+
+        }
+        else if (HitObject.Count > 0)
         {
-            HitObject.GetComponent<BoxController>().Normal();
-            HitObject = null;
+            foreach (GameObject cube in HitObject)
+            {
+                cube.GetComponent<BoxController>().Normal();
+            }
+            HitObject.Clear();
         }
     }
 }

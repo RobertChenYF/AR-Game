@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LinkRaycast : MonoBehaviour
 {
-    [SerializeField]private Camera gameCamera;
-    public GameObject HitObject;
-    
+    [SerializeField] private Camera gameCamera;
+    public List<GameObject> HitObject = new List<GameObject>();
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -14,7 +14,7 @@ public class LinkRaycast : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,29 +22,56 @@ public class LinkRaycast : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
-        
-        if (Physics.Raycast(ray, out hit))
+
+        if (Input.GetMouseButton(0))
         {
-            if (hit.transform.gameObject.CompareTag("Target"))
+            if (Physics.Raycast(ray, out hit))
             {
-                //Debug.Log("Hit");
-                HitObject = hit.transform.gameObject;
-                HitObject.GetComponent<BoxController>().Hit();
+                if (hit.transform.gameObject.CompareTag("Target"))
+                {
+                    //Debug.Log("Hit");
+                    if (!HitObject.Contains(hit.transform.gameObject))
+                    {
+                        HitObject.Add(hit.transform.gameObject);
+                        hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                    }
+                    
+                }
+
+                // Do something with the object that was hit by the raycast.
             }
             
-
-            // Do something with the object that was hit by the raycast.
         }
-        else if(HitObject != null)
+        else if (Input.GetMouseButtonUp(0))
         {
-            HitObject.GetComponent<BoxController>().Normal();
-            HitObject = null;
+            if (HitObject.Count >= 3)
+            {
+                Debug.Log("eliminate");
+                while (HitObject.Count > 0)
+                {
+                    GameObject a = HitObject[0];
+
+                    HitObject.RemoveAt(0);
+                    a.GetComponent<BoxController>().Eliminate();
+                }
+
+            }
+            
         }
+        else if (HitObject.Count > 0)
+        {
+            foreach (GameObject cube in HitObject)
+            {
+                cube.GetComponent<BoxController>().Normal();
+            }
+            HitObject.Clear();
+        }
+
     }
 }
 
 public class Service : MonoBehaviour
 {
     public static LinkRaycast linkRaycast;
-    
+
 }

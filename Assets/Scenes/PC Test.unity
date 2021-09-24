@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.216
+      value: 0.135
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastManager: {fileID: 675329861}
-  HitObject: {fileID: 0}
+  HitObject: []
   ARCamera: {fileID: 433684745}
 --- !u!4 &758855042
 Transform:
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCamera: {fileID: 441110367}
-  HitObject: {fileID: 0}
+  HitObject: []
 --- !u!1 &1007900600
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007900600}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.088, y: 0.268, z: -0.083}
+  m_LocalPosition: {x: 0.088, y: 0.187, z: -0.083}
   m_LocalScale: {x: 0.06, y: 0.55403966, z: 0.57612556}
   m_Children: []
   m_Father: {fileID: 0}
@@ -820,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.216
+      value: 0.135
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.216
+      value: 0.135
       objectReference: {fileID: 0}
     - target: {fileID: 2751853145901360470, guid: d3e341827d8662849b08393d98c1e6f0, type: 3}
       propertyPath: m_LocalPosition.z

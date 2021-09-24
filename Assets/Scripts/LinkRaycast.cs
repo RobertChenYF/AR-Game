@@ -32,10 +32,22 @@ public class LinkRaycast : MonoBehaviour
                     //Debug.Log("Hit");
                     if (!HitObject.Contains(hit.transform.gameObject))
                     {
-                        HitObject.Add(hit.transform.gameObject);
-                        hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                        if (HitObject.Count == 0)
+                        {
+                            HitObject.Add(hit.transform.gameObject);
+                            hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                        }
+                        else
+                        {
+                            if (HitObject[0].GetComponent<BoxController>().thisType == hit.transform.gameObject.GetComponent<BoxController>().thisType)
+                            {
+                                HitObject.Add(hit.transform.gameObject);
+                                hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                            }
+                        }
+
                     }
-                    
+
                 }
 
                 // Do something with the object that was hit by the raycast.

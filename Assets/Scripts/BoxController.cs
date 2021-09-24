@@ -5,7 +5,8 @@ using UnityEngine;
 public class BoxController : MonoBehaviour
 {
     private Material material;
-    public 
+    public enum Type { White, Blue, Red };
+    public Type thisType;
 
     // Start is called before the first frame update
     void Start()

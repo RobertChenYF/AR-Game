@@ -32,8 +32,20 @@ public class ARLinkManager : MonoBehaviour
 
                         if (!HitObject.Contains(hit.transform.gameObject))
                         {
+                            if(HitObject.Count == 0)
+                            {
                             HitObject.Add(hit.transform.gameObject);
                             hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                            }
+                            else
+                            {
+                                if (HitObject[0].GetComponent<BoxController>().thisType == hit.transform.gameObject.GetComponent<BoxController>().thisType)
+                                {
+                                    HitObject.Add(hit.transform.gameObject);
+                                    hit.transform.gameObject.GetComponent<BoxController>().Hit();
+                                }
+                            }
+                            
                         }
                 }
             }

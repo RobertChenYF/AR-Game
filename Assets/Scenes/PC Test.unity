@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 441110366}
   - component: {fileID: 441110370}
   - component: {fileID: 441110369}
+  - component: {fileID: 441110371}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -443,8 +444,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441110365}
-  m_LocalRotation: {x: -0.119194, y: -0.27011478, z: -0.033717543, w: 0.95482665}
-  m_LocalPosition: {x: 0.6570168, y: 0.31295162, z: -0.56990814}
+  m_LocalRotation: {x: -0.17089838, y: 0.7761757, z: -0.23756982, w: -0.55848515}
+  m_LocalPosition: {x: 1.1083276, y: 0.9095435, z: 0.35619053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2095190380}
@@ -527,6 +528,24 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &441110371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441110365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f047fefd40bf3c4b998b9be834e9793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSpeed: 5
+  shiftAdd: 5
+  maxShift: 20
+  camSens: 0.25
+  rotateOnlyIfMousedown: 1
+  movementStaysFlat: 1
 --- !u!1 &577433743
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &577433744
 Transform:
   m_ObjectHideFlags: 0
@@ -1159,7 +1178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2095190380
 Transform:
   m_ObjectHideFlags: 0

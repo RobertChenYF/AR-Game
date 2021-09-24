@@ -37,7 +37,7 @@ public class ARLinkManager : MonoBehaviour
                         }
                 }
             }
-            else if (touch.phase == TouchPhase.Canceled)
+            else if (touch.phase == TouchPhase.Ended)
             {
                 if (HitObject.Count >= 3)
                 {

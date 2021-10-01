@@ -7,24 +7,37 @@ public class LinkRaycast : MonoBehaviour
     [SerializeField] private Camera gameCamera;
     public List<GameObject> HitObject = new List<GameObject>();
 
+    public float movementSum;
+    public float rotationSum;
+    public Vector3 PositionLastFrame;
+    public Vector3 RotationLastFrame;
+
     // Start is called before the first frame update
     void Awake()
     {
         Service.linkRaycast = this;
+        
     }
     void Start()
     {
-
+        Service.indicatorController.PositionLastFrame = gameCamera.transform.position;
+        Service.indicatorController.RotationLastFrame = gameCamera.transform.rotation.eulerAngles;
+        Service.indicatorController.PositionCurrentFrame = gameCamera.transform.position;
+        Service.indicatorController.RotationCurrentFrame = gameCamera.transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Service.indicatorController.PositionCurrentFrame = gameCamera.transform.position;
+        Service.indicatorController.RotationCurrentFrame = gameCamera.transform.rotation.eulerAngles;
         RaycastHit hit;
         Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButton(0))
         {
+            Service.indicatorController.ShowIndicator();
+            Service.indicatorController.SetPos(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.gameObject.CompareTag("Target"))
@@ -56,6 +69,7 @@ public class LinkRaycast : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            Service.indicatorController.CloseIndicator();
             if (HitObject.Count >= 3)
             {
                 Debug.Log("eliminate");
@@ -82,8 +96,4 @@ public class LinkRaycast : MonoBehaviour
     }
 }
 
-public class Service : MonoBehaviour
-{
-    public static LinkRaycast linkRaycast;
 
-}

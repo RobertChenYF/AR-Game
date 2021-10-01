@@ -62,6 +62,7 @@ public class ARLinkManager : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Ended)
             {
+
                 Service.indicatorController.CloseIndicator();
                 if (HitObject.Count >= 3)
                 {

@@ -30,9 +30,7 @@ public class IndicatorController : MonoBehaviour
     }
     void Start()
     {
-        ValueInput.text = "100";
-        MovementFactorInput.text = "1";
-        RotationFactorInput.text = "1";
+        
     }
 
     // Update is called once per frame
@@ -51,6 +49,10 @@ public class IndicatorController : MonoBehaviour
                 + Mathf.Abs(RotationCurrentFrame.y - RotationLastFrame.y);
             currentValue = movementSum * MovementFactor + rotationSum * RotationFactor;
             indicator.GetComponent<Image>().fillAmount = (totalValue - currentValue) / totalValue;
+            if (totalValue - currentValue <=0 )
+            {
+                //turn off 
+            }
             Debug.Log(movementSum + rotationSum);
         }
 

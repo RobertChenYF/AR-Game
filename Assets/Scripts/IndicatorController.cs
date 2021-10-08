@@ -52,6 +52,13 @@ public class IndicatorController : MonoBehaviour
             if (totalValue - currentValue <=0 )
             {
                 //turn off 
+                while (Service.arLinkManager.HitObject.Count > 0)
+                {
+                    GameObject a = Service.arLinkManager.HitObject[0];
+                    //play an effect?
+                    Service.arLinkManager.HitObject.RemoveAt(0);
+                    a.GetComponent<BoxController>().Normal();
+                }
             }
             Debug.Log(movementSum + rotationSum);
         }
@@ -87,5 +94,6 @@ public class IndicatorController : MonoBehaviour
 public class Service : MonoBehaviour
 {
     public static LinkRaycast linkRaycast;
+    public static ARLinkManager arLinkManager;
     public static IndicatorController indicatorController;
 }

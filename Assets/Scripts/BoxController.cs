@@ -7,30 +7,32 @@ public class BoxController : MonoBehaviour
     private Material material;
     public enum Type { White, Blue, Red };
     public Type thisType;
+    public Color originalColor;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         material = GetComponent<MeshRenderer>().material;
-
+        originalColor = material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        transform.Rotate(new Vector3(0,10*Time.deltaTime,0),Space.World);
     }
 
     public void Hit()
     {
         //change color
-        material.color = Color.blue;
+        material.color = Color.red;
     }
 
     public void Normal()
     {
         //change back color
-        material.color = Color.white;
+        material.color = originalColor;
 
     }
 

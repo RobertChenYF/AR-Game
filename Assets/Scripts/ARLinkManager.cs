@@ -12,6 +12,7 @@ public class ARLinkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Service.arLinkManager = this;
         Service.indicatorController.PositionLastFrame = ARCamera.transform.position;
         Service.indicatorController.RotationLastFrame = ARCamera.transform.rotation.eulerAngles;
         Service.indicatorController.PositionCurrentFrame = ARCamera.transform.position;

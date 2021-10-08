@@ -212,7 +212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastManager: {fileID: 675329861}
-  levels: []
+  levels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnedObject: {fileID: 81810697}
 --- !u!4 &60494248
 Transform:
@@ -2407,6 +2410,7 @@ GameObject:
   - component: {fileID: 1224583258}
   - component: {fileID: 1224583257}
   - component: {fileID: 1224583256}
+  - component: {fileID: 1224583259}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2462,6 +2466,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224583259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224583255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d49b7c1bcd2e07499844da127be038d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ForceModuleActive: 0
 --- !u!1 &1316517920
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class BoxController : MonoBehaviour
     private Material material;
     public enum Type { White, Blue, Red };
     public Type thisType;
-    public Color originalColor;
+    private Color originalColor;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class BoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0,10*Time.deltaTime,0),Space.World);
+        transform.Rotate(new Vector3(0,20*Time.deltaTime,0),Space.World);
     }
 
     public void Hit()

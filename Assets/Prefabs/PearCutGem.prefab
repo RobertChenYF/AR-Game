@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2327647752740226442}
   - component: {fileID: 1736655456191762338}
   m_Layer: 0
-  m_Name: sphere
+  m_Name: PearCutGem
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,9 +777,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 272.86655, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Position: {x: -0.0000000062967853, y: 1.8047697e-10, z: 0}
+    m_Rotation: {x: 0, y: 270, z: 0}
+    m_Scale: {x: 1, y: 0.99999994, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
